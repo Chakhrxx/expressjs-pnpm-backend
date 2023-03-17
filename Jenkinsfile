@@ -23,8 +23,9 @@ pipeline {
             verbose : true,
             transfers: [
                 sshTransfer(
-                sourceFiles: 'src/, Dockerfile, package.json, pnpm-lock.yaml, Ansible-playbook.yaml',
+                sourceFiles: 'src/, Dockerfile, package.json, pnpm-lock.yaml, Ansiblefile.yaml',
                 remoteDirectory: 'docker/nodejs-pnpm-backend',
+                execCommand : 'ansible-playbook -i /etc/ansible/hosts /home/Chakhree/docker/nodejs-pnpm-backend/Ansiblefile.yaml'
                 // execCommand: 'cd /home/Chakhree/nodejs-pnpm-backend; docker rmi nodejs-pnpm-image; docker stop nodejs-pnpm-container; docker rm nodejs-pnpm-container; docker build -t nodejs-pnpm-image .; docker run -d --name nodejs-pnpm-container -p 3001:3000 nodejs-pnpm-image'
                 )
             ]

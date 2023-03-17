@@ -4,8 +4,3 @@
       copy:
         src: /home/Chakhree/docker/nodejs-pnpm-backend/
         dest: /home/Chakhree/docker/nodejs-pnpm-backend/
-    - name: Run docker-compose up
-      become: true
-      command: pwd
-      # args:
-      #   chdir: /opt/docker/
