@@ -1,6 +1,10 @@
 - hosts: Docker
   tasks:
-    - name: Copy contents of /opt/docker from ansibleHost to dockerHost
+    - name: Copy project from ansibleHost to aockerHost
       copy:
         src: /home/Chakhree/docker/nodejs-pnpm-backend/
         dest: /home/Chakhree/docker/nodejs-pnpm-backend/
+    - name: Create docker image
+      ansible.builtin.shell: docker build -t nodejs-pnpm-image .
+      args:
+        chdir: /home/Chakhree/docker/nodejs-pnpm-backend/
