@@ -8,3 +8,5 @@
       ansible.builtin.shell: docker build -t nodejs-pnpm-image .
       args:
         chdir: /home/Chakhree/docker/nodejs-pnpm-backend/
+    - name: Check docker image has been created
+      ansible.builtin.shell: docker image ls
