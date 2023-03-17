@@ -5,11 +5,10 @@
         src: /home/Chakhree/docker/nodejs-pnpm-backend/
         dest: /home/Chakhree/docker/nodejs-pnpm-backend/
     - name: stage 1
-      ansible.builtin.shell: docker stop nodejs-pnpm-container 
-      ansible.builtin.shell: docker rm nodejs-pnpm-container
+      ansible.builtin.shell: docker stop nodejs-pnpm-container
     # - name: Stop and remove nodejs-pnpm-container
     #   ansible.builtin.shell: |
-    #     docker stop nodejs-pnpm-container 
+    #     docker stop nodejs-pnpm-container
     #     docker rm nodejs-pnpm-container
     # - name: Remove nodejs-pnpm-image
     #   ansible.builtin.shell: |
