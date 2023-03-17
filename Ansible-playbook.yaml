@@ -2,8 +2,8 @@
   tasks:
     - name: Copy contents of /opt/docker from ansibleHost to dockerHost
       copy:
-        src: /opt/docker/
-        dest: /opt/docker/
+        src: /home/Chakhree/docker/nodejs-pnpm-backend/
+        dest: /home/Chakhree/docker/nodejs-pnpm-backend/
     - name: Run docker-compose up
       become: true
       command: pwd
