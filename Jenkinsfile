@@ -5,10 +5,22 @@ pipeline {
 
   stages {
     
-    stage('Build') {
+    stage('Install') {
       steps {
         sh 'npm install -g pnpm'
         sh 'pnpm install'
+      }
+    }
+
+        stage('Build') {
+      steps {
+        sh 'pnpm build'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'pnpm test'
       }
     }
 
