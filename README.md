@@ -1,42 +1,35 @@
-[![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
+<p align="center">
+  <a href="https://expressjs.com/" target="blank"><img src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" width="200" alt="Express Logo" /></a>
+</p>
 
-Fast, unopinionated, minimalist web framework for [Node.js](http://nodejs.org).
-
-[![pnpm Version][pnpm-version-image]][pnpm-url]
-[![pnpm Install Size][pnpm-install-size-image]][pnpm-install-size-url]
-[![pnpm Downloads][pnpm-downloads-image]][pnpm-downloads-url]
-
-```js
-const express = require("express");
-const app = express();
-
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
-
-app.listen(3000);
-```
+  <p align="center">Fast, unopinionated, minimalist web framework for <a href="http://nodejs.org" target="_blank">Node.js</a></p>
+    <p align="center">
+<a href="https://www.npmjs.com/package/express" target="_blank"><img src="https://camo.githubusercontent.com/1989ee0985bb24c008f46f46930d552e5b4f95c938cecd70fca2cd18e8acbecb/68747470733a2f2f62616467656e2e6e65742f6e706d2f762f65787072657373" alt="NPM Version" /></a>
+<a href="https://packagephobia.com/result?p=express" target="_blank"><img src="https://camo.githubusercontent.com/c091a53ad9661729eaa890ef2840c43104568188430c545f5a1e1225a5024894/68747470733a2f2f62616467656e2e6e65742f7061636b61676570686f6269612f696e7374616c6c2f65787072657373" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
 
 ## Installation
 
-This is a [Node.js](https://nodejs.org/en/) module available through the
-[pnpm registry](https://www.pnpmjs.com/).
-
-Before installing, [download and install Node.js](https://nodejs.org/en/download/).
-Node.js 0.10 or higher is required.
-
-If this is a brand new project, make sure to create a `package.json` first with
-the [`pnpm init` command](https://docs.pnpmjs.com/creating-a-package-json-file).
-
-Installation is done using the
-[`pnpm install` command](https://docs.pnpmjs.com/getting-started/installing-pnpm-packages-locally):
-
-```console
-$ pnpm install express
+```bash
+$ pnpm install
 ```
 
-Follow [our installing guide](http://expressjs.com/en/starter/installing.html)
-for more information.
+## Running the app
+
+```bash
+# development
+$ pnpm dev
+
+# production mode
+$ pnpm start
+```
+
+## Test
+
+```bash
+# unit tests
+$ pnpm test
+```
 
 ## Features
 
@@ -56,86 +49,3 @@ for more information.
 - Visit the [Wiki](https://github.com/expressjs/express/wiki)
 - [Google Group](https://groups.google.com/group/express-js) for discussion
 - [Gitter](https://gitter.im/expressjs/express) for support and discussion
-
-**PROTIP** Be sure to read [Migrating from 3.x to 4.x](https://github.com/expressjs/express/wiki/Migrating-from-3.x-to-4.x) as well as [New features in 4.x](https://github.com/expressjs/express/wiki/New-features-in-4.x).
-
-## Quick Start
-
-The quickest way to get started with express is to utilize the executable [`express(1)`](https://github.com/expressjs/generator) to generate an application as shown below:
-
-Install the executable. The executable's major version will match Express's:
-
-```console
-$ pnpm install -g express-generator@4
-```
-
-Create the app:
-
-```console
-$ express /tmp/foo && cd /tmp/foo
-```
-
-Install dependencies:
-
-```console
-$ pnpm install
-```
-
-Start the server:
-
-```console
-$ pnpm start
-```
-
-View the website at: http://localhost:3000
-
-## Philosophy
-
-The Express philosophy is to provide small, robust tooling for HTTP servers, making
-it a great solution for single page applications, websites, hybrids, or public
-HTTP APIs.
-
-Express does not force you to use any specific ORM or template engine. With support for over
-14 template engines via [Consolidate.js](https://github.com/tj/consolidate.js),
-you can quickly craft your perfect framework.
-
-## Examples
-
-To view the examples, clone the Express repo and install the dependencies:
-
-```console
-$ git clone https://github.com/expressjs/express.git --depth 1
-$ cd express
-$ pnpm install
-```
-
-Then run whichever example you want:
-
-```console
-$ node examples/content-negotiation
-```
-
-## Contributing
-
-[![Linux Build][github-actions-ci-image]][github-actions-ci-url]
-[![Windows Build][appveyor-image]][appveyor-url]
-[![Test Coverage][coveralls-image]][coveralls-url]
-
-The Express.js project welcomes all constructive contributions. Contributions take many forms,
-from code for bug fixes and enhancements, to additions and fixes to documentation, additional
-tests, triaging incoming pull requests and issues, and more!
-
-See the [Contributing Guide](Contributing.md) for more technical details on contributing.
-
-### Security Issues
-
-If you discover a security vulnerability in Express, please see [Security Policies and Procedures](Security.md).
-
-### Running Tests
-
-To run the test suite, first install the dependencies, then run `pnpm test`:
-
-```console
-$ pnpm install
-$ pnpm test
-```
