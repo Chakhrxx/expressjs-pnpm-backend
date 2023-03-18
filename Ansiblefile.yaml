@@ -1,6 +1,6 @@
 - hosts: Docker
   tasks:
-    - name: Copy project from ansibleHost to aockerHost
+    - name: Copy nodejs-pnpm-backend from ansibleHost to aockerHost
       copy:
         src: /home/Chakhree/docker/nodejs-pnpm-backend/
         dest: /home/Chakhree/docker/nodejs-pnpm-backend/
