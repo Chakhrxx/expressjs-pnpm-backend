@@ -1,0 +1,63 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "version": "1.0.0",
+    "description": "API documentation for My API"
+  },
+  "servers": [{ "url": "http://localhost:3000" }],
+  "apis": ["./routes/*.ts"],
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "require": ["name", "password", "email", "role"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Field of name"
+          },
+          "password": {
+            "type": "string",
+            "description": "Field of password"
+          },
+          "email": {
+            "type": "string",
+            "description": "Field of email"
+          },
+          "role": {
+            "type": "string",
+            "description": "Field of role"
+          }
+        },
+        "example": {
+          "userId": "60d5b2f65e32c10b09e9427e",
+          "email": "john.doe@example.com",
+          "name": "John Doe",
+          "password": "password",
+          "role": "guest"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/user": {
+      "get": {
+        "summary": "Returns a list of users",
+        "responses": {
+          "200": {
+            "description": "The list of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "item": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
