@@ -1,7 +1,7 @@
-import express, { Request, Response, Router, NextFunction } from "express";
-import User, { InterfaceUser } from "../../models/User";
-import { checkUserRole } from "../../middleware/authentication";
-import { userRules, validate } from "../validators";
+import { Request, Response, Router, NextFunction } from "express";
+import User, { InterfaceUser } from "../../../models/User";
+import { checkUserRole } from "../../../middleware/authentication";
+import { userRules, validate } from "../../validators";
 
 const router: Router = Router();
 

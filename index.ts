@@ -1,14 +1,18 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import http from "http";
-import { setupSwagger } from "./middleware/swagger/swagger";
+import jwt from "jsonwebtoken";
+// import { setupSwagger } from "./middleware/swagger/swagger";
+import { setupSwagger } from "./docs/openapi";
+
 import { checkAuth } from "./middleware/authentication";
 import { connectMongo } from "./config/mongoDB";
+import { connectPostgres } from "./config/postgresDB";
 
-import userRoutes from "./routes/api/user";
 import User, { InterfaceUser } from "./models/User";
 
-const jwt = require("jsonwebtoken");
+import mongoRoutes from "./routes/api/mongo/index";
+import postresRoutes from "./routes/api/postgres/index";
 
 dotenv.config();
 
@@ -18,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // middle call swagger
 setupSwagger(app);
+
+// Connect to PostgresDB
+connectPostgres();
 
 // Connect to MongoDB
 connectMongo();
@@ -30,7 +37,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.post(
-  "/creatAuth/:id",
+  "/creatToken/:id",
   async (req: Request, res: Response, next: NextFunction) => {
     const id = req?.params?.id;
 
@@ -64,8 +71,8 @@ app.post(
 
 app.use(checkAuth);
 
-// Middleware for serving API routes
-app.use("/api/user", userRoutes);
+app.use("/mongo", mongoRoutes);
+app.use("/postgres", postresRoutes);
 
 const port = process.env.PORT || 3000;
 

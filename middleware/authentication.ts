@@ -1,15 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { json } from "stream/consumers";
 dotenv.config();
 
 interface AuthRequest extends Request {
   userData?: { userId: string };
-}
-
-interface TokenPayload {
-  role: string;
 }
 
 export const checkAuth = (
@@ -37,21 +33,19 @@ export const checkUserRole = (
   res: Response,
   next: NextFunction
 ) => {
-  const token = req.headers.authorization.split(".")[1];
+  const token = req.headers.authorization.split(".");
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });
   }
   try {
-    const decodedToken = JSON.parse(atob(String(token)));
+    const decodedToken = JSON.parse(atob(String(token[1])))?._doc;
+
     const { role } = decodedToken;
-    console.log("role", role);
 
     if (role === "guest") {
       return res.status(403).json({ message: "Access forbidden" });
     } else {
       next();
     }
-  } catch (error) {
-    return res.status(401).json({ message: "Test" });
-  }
+  } catch (error) {}
 };

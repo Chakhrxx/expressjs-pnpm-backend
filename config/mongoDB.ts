@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-export const { mongoURI: connectionString, mongoDBName } = require("./config");
+import { mongoURI, mongoDBName } from "./config";
 
 export const options = {
   useUnifiedTopology: true,
@@ -14,11 +14,12 @@ export const options = {
 
 export const connectMongo = async (): Promise<void> => {
   try {
-    await mongoose.connect(connectionString, options);
-    console.log("Connected to MongoDB successfully!");
-  } catch (err) {
-    console.error(err.message);
-    // Exit process with failure
-    process.exit(1);
-  }
+    await mongoose
+      .connect(mongoURI, options)
+      .then((result) => console.log("Connected to MongoDB successfully!"))
+      .catch((error: Error) => {
+        console.error(error?.message);
+        process.exit(1);
+      });
+  } catch (error) {}
 };

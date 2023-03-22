@@ -2,7 +2,10 @@ import { Express } from "express";
 import swaggerJSDoc, { SwaggerDefinition } from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
-import { userAPI, userAPIbyParam } from "./user";
+// Import Path Documentation
+import { creatTokenAPI } from "./paths/default";
+import { mongoUserAPI, mongoUserAPIbyParam } from "./paths/mongo/user";
+import { postgresUserAPI, postgresUserAPIbyParam } from "./paths/postgres/user";
 
 const swaggerDefinition: SwaggerDefinition = {
   openapi: "3.0.0",
@@ -11,6 +14,7 @@ const swaggerDefinition: SwaggerDefinition = {
     version: "1-alpine",
     description: "API for ExpressJS TypeScipt",
   },
+  basePath: "/",
   components: {
     securitySchemes: {
       // BasicAuth: {
@@ -53,30 +57,11 @@ const swaggerDefinition: SwaggerDefinition = {
     },
   ],
   paths: {
-    "/creatAuth/{id}": {
-      post: {
-        summary: "Creates a user.",
-        parameters: [
-          {
-            name: "id",
-            in: "path",
-            description: "ID of user to return",
-            required: true,
-            schema: {
-              type: "string",
-            },
-            example: "60d5b2f65e32c10b09e9427e",
-          },
-        ],
-        responses: {
-          201: {
-            description: "Created",
-          },
-        },
-      },
-    },
-    "/api/user": userAPI,
-    "/api/user/{id}": userAPIbyParam,
+    "/creatToken/{id}": creatTokenAPI,
+    "/mongo/user": mongoUserAPI,
+    "/mongo/user/{id}": mongoUserAPIbyParam,
+    "/postgres/user": postgresUserAPI,
+    "/postgres/user/{id}": postgresUserAPIbyParam,
   },
 };
 
