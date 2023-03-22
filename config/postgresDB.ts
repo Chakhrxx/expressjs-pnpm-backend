@@ -7,7 +7,7 @@ import {
   postgresDBName,
 } from "./config";
 
-const postgresClient = new Pool({
+export const postgresClient = new Pool({
   host: postgresHost,
   port: parseInt(postgresPort),
   user: postgresUserName,

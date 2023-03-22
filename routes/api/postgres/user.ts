@@ -29,7 +29,8 @@ export const checkPostgresId = async (next: NextFunction) => {
 
 router.get("/", async (req: Request, res: Response, next: NextFunction) => {
   const queryObject: interfacePostgresQuery = {
-    text: "SELECT name, email FROM users;",
+    // text: "SELECT name, email FROM users;",
+    text: "SELECT NOW()",
     values: [],
   };
   checkPostgresId(next);

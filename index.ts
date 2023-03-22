@@ -69,7 +69,7 @@ app.post(
   }
 );
 
-app.use(checkAuth);
+// app.use(checkAuth);
 
 app.use("/mongo", mongoRoutes);
 app.use("/postgres", postresRoutes);
