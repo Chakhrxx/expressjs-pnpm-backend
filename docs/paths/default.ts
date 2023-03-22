@@ -1,7 +1,7 @@
 import { userParam } from "../components/parameter";
 export const creatTokenAPI = {
   post: {
-    summary: "Creates a user.",
+    summary: "Create a JWT token for authorization",
     parameters: [userParam?.id],
     responses: {
       201: {

@@ -11,7 +11,7 @@ export const postgresUserAPI = {
     },
   },
   post: {
-    summary: "Creates a user.",
+    summary: "Create a Postgres user",
     tags: ["PostgresDB"],
     requestBody: {
       required: ["username", "password", "email", "role"],
@@ -31,7 +31,7 @@ export const postgresUserAPI = {
 
 export const postgresUserAPIbyParam = {
   get: {
-    summary: "Returns a list of users",
+    summary: "Returns a user",
     tags: ["PostgresDB"],
     parameters: [userParam?.id],
     responses: {
@@ -39,7 +39,7 @@ export const postgresUserAPIbyParam = {
     },
   },
   put: {
-    summary: "Returns a list of users",
+    summary: "Update a Postgres user",
     tags: ["PostgresDB"],
     parameters: [userParam?.id],
     requestBody: {
@@ -55,7 +55,7 @@ export const postgresUserAPIbyParam = {
     },
   },
   delete: {
-    summary: "Returns a list of users",
+    summary: "Delete a Postgres user",
     tags: ["PostgresDB"],
     parameters: [userParam?.id],
     responses: {

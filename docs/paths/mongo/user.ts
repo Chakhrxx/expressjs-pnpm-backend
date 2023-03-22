@@ -11,7 +11,7 @@ export const mongoUserAPI = {
     },
   },
   post: {
-    summary: "Creates a user.",
+    summary: "Create a Mongo user",
     tags: ["MongoDB"],
     requestBody: {
       required: ["username", "password", "email", "role"],
@@ -31,7 +31,7 @@ export const mongoUserAPI = {
 
 export const mongoUserAPIbyParam = {
   get: {
-    summary: "Returns a list of users",
+    summary: "Returns a user",
     tags: ["MongoDB"],
     parameters: [userParam?.id],
     responses: {
@@ -39,7 +39,7 @@ export const mongoUserAPIbyParam = {
     },
   },
   put: {
-    summary: "Returns a list of users",
+    summary: "Update a Mongo user",
     tags: ["MongoDB"],
     parameters: [userParam?.id],
     requestBody: {
@@ -55,7 +55,7 @@ export const mongoUserAPIbyParam = {
     },
   },
   delete: {
-    summary: "Returns a list of users",
+    summary: "Delete a Mongo user",
     tags: ["MongoDB"],
     parameters: [userParam?.id],
     responses: {
