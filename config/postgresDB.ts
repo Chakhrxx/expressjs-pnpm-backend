@@ -7,13 +7,15 @@ import {
   postgresDBName,
 } from "./config";
 
-export const postgresClient = new Pool({
+export const postgresConfig = {
   host: postgresHost,
   port: parseInt(postgresPort),
   user: postgresUserName,
   password: postgresPassword,
   database: postgresDBName,
-});
+};
+
+const postgresClient = new Pool(postgresConfig);
 
 export const connectPostgres = async (): Promise<void> => {
   try {
