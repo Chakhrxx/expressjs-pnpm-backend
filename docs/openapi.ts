@@ -10,7 +10,7 @@ import { postgresUserAPI, postgresUserAPIbyParam } from "./paths/postgres/user";
 const swaggerDefinition: SwaggerDefinition = {
   openapi: "3.0.0",
   info: {
-    title: "Nodejs-pnpm API",
+    title: "Expressjs-pnpm",
     version: "1-alpine",
     description: "API for ExpressJS TypeScipt",
   },
