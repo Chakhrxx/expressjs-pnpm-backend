@@ -36,8 +36,7 @@ pipeline {
             transfers: [
                 sshTransfer(
                 sourceFiles: 'config/, docs/,  middleware/, models/, routes/, Ansiblefile.yaml, Dockerfile, index.ts, package.json, pnpm-lock.yaml, tsconfig.build.json, tsconfig.json',
-                remoteDirectory: 'docker/expressjs-pnpm-backend',
-                // execCommand : 'ansible-playbook -v -i /etc/ansible/hosts /home/Chakhree/docker/expressjs-pnpm-backend/Ansiblefile.yaml'
+                remoteDirectory: 'docker/expressjs-pnpm-backend'
                 )
             ]
             )
