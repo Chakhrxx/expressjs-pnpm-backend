@@ -21,4 +21,4 @@
         docker image ls
     - name: Run expressjs-pnpm-container
       ansible.builtin.shell: |
-        docker run -d --name expressjs-pnpm-container -p 3001:3000 expressjs-pnpm-image
+        docker run -d --name expressjs-pnpm-container -p 3001:3001 expressjs-pnpm-image
