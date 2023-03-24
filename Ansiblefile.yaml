@@ -1,24 +1,24 @@
 - hosts: Docker
   tasks:
-    - name: Copy nodejs-pnpm-backend from ansibleHost to aockerHost
+    - name: Copy expressjs-pnpm-backend from ansibleHost to aockerHost
       copy:
-        src: /home/Chakhree/docker/nodejs-pnpm-backend/
-        dest: /home/Chakhree/docker/nodejs-pnpm-backend/
-    - name: Stop and remove nodejs-pnpm-container
+        src: /home/Chakhree/docker/expressjs-pnpm-backend/
+        dest: /home/Chakhree/docker/expressjs-pnpm-backend/
+    - name: Stop and remove expressjs-pnpm-container
       ansible.builtin.shell: |
-        docker stop nodejs-pnpm-container
-        docker rm nodejs-pnpm-container
+        docker stop expressjs-pnpm-container
+        docker rm expressjs-pnpm-container
       ignore_errors: true
-    - name: Remove nodejs-pnpm-image
+    - name: Remove expressjs-pnpm-image
       ansible.builtin.shell: |
-        docker rmi nodejs-pnpm-image
+        docker rmi expressjs-pnpm-image
       ignore_errors: true
-    - name: Create nodejs-pnpm-image
+    - name: Create expressjs-pnpm-image
       ansible.builtin.shell: |
-        docker build -t nodejs-pnpm-image /home/Chakhree/docker/nodejs-pnpm-backend/
-    - name: Check nodejs-pnpm-image has been created
+        docker build -t expressjs-pnpm-image /home/Chakhree/docker/expressjs-pnpm-backend/
+    - name: Check expressjs-pnpm-image has been created
       ansible.builtin.shell: |
         docker image ls
-    - name: Run nodejs-pnpm-container
+    - name: Run expressjs-pnpm-container
       ansible.builtin.shell: |
-        docker run -d --name nodejs-pnpm-container -p 3001:3000 nodejs-pnpm-image
+        docker run -d --name expressjs-pnpm-container -p 3001:3000 expressjs-pnpm-image

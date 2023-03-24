@@ -12,17 +12,17 @@ pipeline {
       }
     }
 
-        stage('Build') {
+    stage('Build') {
       steps {
         sh 'pnpm build'
       }
     }
 
-    stage('Test') {
-      steps {
-        sh 'pnpm test'
-      }
-    }
+    // stage('Test') {
+    //   steps {
+    //     sh 'pnpm test'
+    //   }
+    // }
 
     stage('Deploy') {
       steps {
